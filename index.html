@@ -15,7 +15,19 @@
       var map = L.map('map').setView([45.52, -122.6819], 11);
 
       L.esri.basemapLayer('Gray').addTo(map);
-      L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Portland_Neighborhoods/FeatureServer/0').addTo(map);
+      L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/Portland_Neighborhoods/FeatureServer/0',{
+        simplifyFactor: 0.5,
+        precision: 5,
+        style: function (feature) {
+          if(feature.properties.NBO_ID %2 ===0){
+            return {color: 'blue'};
+          }
+          else {
+            return {color: 'red'};
+          }
+          }
+        }
+      }).addTo(map);
     </script>
   </body>
 </html>
