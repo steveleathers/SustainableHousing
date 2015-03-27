@@ -19,7 +19,14 @@
         simplifyFactor: 0.4,
         precision: 5,
         style: function (feature) {
-          if(/^OREGON STATE OF/.test(feature.properties.OWNER1) || feature.properties.OWNER1 == 'PORT OF PORTLAND' || feature.properties.OWNER1 == 'METRO' || feature.properties.OWNER1 == 'PORTLAND CITY OF' || feature.properties.OWNER1 == 'CITY OF PORTLAND' || feature.properties.OWNER1 == 'MULTNOMAH COUNTY' || feature.properties.OWNER1 == 'UNITED STATES OF AMERICA' || feature.properties.OWNER1 == 'SCHOOL DISTRICT'){
+          if(feature.properties.OWNER1 == /OREGON STATE OF^/ ||
+            feature.properties.OWNER1 == 'PORT OF PORTLAND' ||
+            feature.properties.OWNER1 == 'METRO' ||
+            feature.properties.OWNER1 == 'PORTLAND CITY OF' ||
+            feature.properties.OWNER1 == 'CITY OF PORTLAND' ||
+            feature.properties.OWNER1 == 'MULTNOMAH COUNTY' ||
+            feature.properties.OWNER1 == 'UNITED STATES OF AMERICA' ||
+            feature.properties.OWNER1 == 'SCHOOL DISTRICT'){
             return {color: '#c51b8a', weight: 0};
           }
           else {
