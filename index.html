@@ -28,7 +28,6 @@
         }
       }).addTo(map);
       newResPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/New%20Construction%20Residential%20Permits/FeatureServer/0',{
-        style: function (feature) {
           pointToLayer: function (latlng) {
                 return new L.CircleMarker(latlng, {
                     radius: 5,
