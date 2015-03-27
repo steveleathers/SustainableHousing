@@ -20,10 +20,10 @@
         precision: 5,
         style: function (feature) {
           if(feature.properties.isPublic == 1){
-            return {color: '#c51b8a', weight: 0, opacity: 0.8};
+            return {color: '#c51b8a', weight: 0, fillOpacity: 0.8};
           }
           else {
-            return {color: '#b2182b', weight: 0, opacity: 0.8};
+            return {color: '#b2182b', weight: 0, fillOpacity: 0.8};
           }
         }
       }).addTo(map);
