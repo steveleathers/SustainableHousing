@@ -20,25 +20,14 @@
         precision: 5,
         style: function (feature) {
           if(feature.properties.isPublic == 1){
-            return {color: '#c51b8a', weight: 0, fillOpacity: 0.8};
+            return {color: '#c51b8a', weight: 0, fillOpacity: 0.6};
           }
           else {
-            return {color: '#b2182b', weight: 0, fillOpacity: 0.8};
+            return {color: '#b2182b', weight: 0, fillOpacity: 0.6};
           }
         }
       }).addTo(map);
-      newResPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/New%20Construction%20Residential%20Permits/FeatureServer/0',{
-          pointToLayer: function (latlng) {
-                return new L.CircleMarker(latlng, {
-                    radius: 5,
-                    fillColor: "#A3C990",
-                    color: "#000",
-                    weight: 1,
-                    opacity: 1,
-                    fillOpacity: 0.4
-                });
-        }
-      }).addTo(map);
+      newResPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/New%20Construction%20Residential%20Permits/FeatureServer/0').addTo(map);
       vacantLots.bindPopup(function(feature){
         return L.Util.template('<p><strong>Owner: </strong>{OWNER1}<br><strong>Address:</strong> {SITEADDR}<br><strong>General Use:</strong> {GEN_USE}</p>', feature.properties);
       });
