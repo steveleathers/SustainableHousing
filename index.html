@@ -16,14 +16,14 @@
 
       L.esri.basemapLayer('Gray').addTo(map);
       L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/ArcGIS/rest/services/NonPark_vacant_BLInon_openspace/FeatureServer/0',{
-        simplifyFactor: 0.5,
+        simplifyFactor: 0.25,
         precision: 5,
         style: function (feature) {
           if(/^OREGON STATE OF/.test(feature.properties.OWNER1) || feature.properties.OWNER1 == 'PORT OF PORTLAND' || feature.properties.OWNER1 == 'METRO' || feature.properties.OWNER1 == 'PORTLAND CITY OF' || feature.properties.OWNER1 == 'CITY OF PORTLAND' || feature.properties.OWNER1 == 'MULTNOMAH COUNTY' || feature.properties.OWNER1 == 'UNITED STATES OF AMERICA' || feature.properties.OWNER1 == 'SCHOOL DISTRICT'){
-            return {color: '#c51b8a'};
+            return {color: '#c51b8a', weight: 0};
           }
           else {
-            return {color: '#b2182b'};
+            return {color: '#b2182b', weight: 0};
           }
         }
       }).addTo(map);
