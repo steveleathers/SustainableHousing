@@ -19,11 +19,11 @@
         simplifyFactor: 0.5,
         precision: 5,
         style: function (feature) {
-          if(feature.properties.NBO_ID %2 ===0){
-            return {color: 'red'};
+          if(feature.properties.OWNER1 == 'OREGON STATE OF' || feature.properties.OWNER1 == 'PORT OF PORTLAND' || feature.properties.OWNER1 == 'METRO' || feature.properties.OWNER1 == 'PORTLAND CITY OF' || feature.properties.OWNER1 == 'CITY OF PORTLAND' || feature.properties.OWNER1 == 'MULTNOMAH COUNTY' || feature.properties.OWNER1 == 'UNITED STATES OF AMERICA' || feature.properties.OWNER1 == 'SCHOOL DISTRICT'){
+            return {color: '#c51b8a'};
           }
           else {
-            return {color: 'blue'};
+            return {color: '#b2182b'};
           }
         }
       }).addTo(map);
