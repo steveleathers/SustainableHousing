@@ -27,7 +27,19 @@
           }
         }
       }).addTo(map);
-      newResPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/New%20Construction%20Residential%20Permits/FeatureServer/0').addTo(map);
+      newResPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/New%20Construction%20Residential%20Permits/FeatureServer/0',{
+        style: function (feature) {
+          pointToLayer: function (latlng) {
+                return new L.CircleMarker(latlng, {
+                    radius: 5,
+                    fillColor: "#A3C990",
+                    color: "#000",
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.4
+                });
+        }
+      }).addTo(map);
       vacantLots.bindPopup(function(feature){
         return L.Util.template('<p><strong>Owner: </strong>{OWNER1}<br><strong>Address:</strong> {SITEADDR}<br><strong>General Use:</strong> {GEN_USE}</p>', feature.properties);
       });
