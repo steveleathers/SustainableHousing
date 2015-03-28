@@ -12,7 +12,7 @@
   </head>
   <body>
     <div id='legend' style='display:none;'>
-      <strong>The Title or Explanation of your Map</strong>
+      <strong>Vacant Lots</strong>
       <nav class='legend clearfix'>
         <span style='background:#F1EEF6;'></span>
         <span style='background:#BDC9E1;'></span>
@@ -53,7 +53,7 @@
         "Apartment Permits": apartmentPermits
       };
 
-      L.control.layers(overlays).addTo(map);
+      L.control.layers(overlays).addOverlay(map);
 
       singleFamilyValue.addTo(map);
 
