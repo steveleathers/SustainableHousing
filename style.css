@@ -13,6 +13,8 @@ body {
   position: absolute;
   right: 2rem;
   width: 11rem;
+  background-color: #ccc;
+  padding: 0.2em;
 }
 #legend span{
   height: 1rem;
