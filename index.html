@@ -11,11 +11,11 @@
     <script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet-renderers/0.0.1-beta.3/esri-leaflet-renderers.js"></script>
   </head>
   <body>
-    <div id='legend'>
+    <div id='legend' style='display:none;'>
       <strong>Vacant Lots</strong>
       <nav class='legend clearfix'>
         <span style='background:rgba(197, 27, 138, 0.6)'></span>
-        <span style='background:rgba(178, 24, 43, 0.6)'></span>
+        <span style='background:#BDC9E1;'></span>
         <label>Public Owned</label>
         <label>Privately Owned</label>
         <small>Source: <a href="#link to source">Portland BPS</a></small>
@@ -39,20 +39,23 @@
         }
       })
 
-      newResPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/New%20Construction%20Residential%20Permits/FeatureServer/0');
-      singleFamilyValue = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
-      condoPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
-      apartmentPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
+      vacantLots.addTo(map);
 
-      var overlays = {
-        "New Residential Construction Permits": newResPermits,
-        "Projected Value for Single Family Homes": singleFamilyValue,
-        "Condo Permits": condoPermits,
-        "Apartment Permits": apartmentPermits
-      };
+      // newResPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/New%20Construction%20Residential%20Permits/FeatureServer/0');
+      // singleFamilyValue = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
+      // condoPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
+      // apartmentPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
+      //
+      // var overlays = {
+      //   "New Residential Construction Permits": newResPermits,
+      //   "Projected Value for Single Family Homes": singleFamilyValue,
+      //   "Condo Permits": condoPermits,
+      //   "Apartment Permits": apartmentPermits
+      // };
+      //
+      // L.control.layers(overlays).addTo(map);
 
-      L.control.layers(overlays).addTo(map);
-      
+      singleFamilyValue.addTo(map);
 
       vacantLots.bindPopup(function(feature){
         return L.Util.template('<p><strong>Owner: </strong>{OWNER1}<br><strong>Address:</strong> {SITEADDR}<br><strong>General Use:</strong> {GEN_USE}</p>', feature.properties);
