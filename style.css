@@ -14,3 +14,8 @@ body {
   right: 2rem;
   width: 11rem;
 }
+#legend span{
+  height: 1rem;
+  width: 1rem;
+  display: inline-block;
+}
