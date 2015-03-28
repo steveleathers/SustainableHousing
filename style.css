@@ -11,6 +11,7 @@ body {
 }
 #legend {
   position: absolute;
+  top: 2rem;
   right: 2rem;
   width: 11rem;
   background-color: #ccc;
