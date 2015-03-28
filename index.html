@@ -39,21 +39,20 @@
         }
       })
 
-      // newResPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/New%20Construction%20Residential%20Permits/FeatureServer/0');
-      // singleFamilyValue = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
-      // condoPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
-      // apartmentPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
-      //
-      // var overlays = {
-      //   "New Residential Construction Permits": newResPermits,
-      //   "Projected Value for Single Family Homes": singleFamilyValue,
-      //   "Condo Permits": condoPermits,
-      //   "Apartment Permits": apartmentPermits
-      // };
+      newResPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/New%20Construction%20Residential%20Permits/FeatureServer/0');
+      singleFamilyValue = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
+      condoPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
+      apartmentPermits = L.esri.featureLayer('http://services.arcgis.com/rOo16HdIMeOBI4Mb/arcgis/rest/services/residential_permits/FeatureServer/0');
+
+      var overlays = {
+        "New Residential Construction Permits": newResPermits,
+        "Projected Value for Single Family Homes": singleFamilyValue,
+        "Condo Permits": condoPermits,
+        "Apartment Permits": apartmentPermits
+      };
 
       L.control.layers(overlays).addTo(map);
-
-      singleFamilyValue.addTo(map);
+      
 
       vacantLots.bindPopup(function(feature){
         return L.Util.template('<p><strong>Owner: </strong>{OWNER1}<br><strong>Address:</strong> {SITEADDR}<br><strong>General Use:</strong> {GEN_USE}</p>', feature.properties);
